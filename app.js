@@ -1,4 +1,4 @@
-//Part 1: Refactoring Old Code
+//Part 1: Refactoring Old Code :D
 //Headers as Object Keys: The first row (headers) is split and used as keys for objects representing each row's data.
 //Array of Objects: Each row is converted into an object where the keys are the header names and the values are the corresponding cell data.
 //Return Structured Data: Instead of just logging the CSV rows, the function now returns an array of objects, which can be further used for manipulation or analysis.
@@ -38,7 +38,7 @@ console.log(parsedData1);
 console.log("\nParsed CSV Data 2:");
 console.log(parsedData2);
 
-//Part 2: Expanding Functionality//
+//Part 2: Expanding Functionality >_<"" //
 
 
 function parseCSVTo2DArray(csvString) {
@@ -76,32 +76,31 @@ console.log(parsedData1);
 console.log("\nParsed CSV Data 2 (2D Array):");
 console.log(parsedData2);
 
-//PArt 3: Transforming Data//
+//PArt 3: Transforming Data ^_^//
 
-// Function to convert a 2D CSV array into an array of objects
+
 function convertCSVToObjects(csvArray) {
-    const headers = csvArray[0]; // First row contains the headers
+    const headers = csvArray[0]; 
     const result = [];
 
-    // Loop through each data row starting from index 1 (skip the header row)
+   
     for (let i = 1; i < csvArray.length; i++) {
         let row = csvArray[i];
-        let obj = {}; // Create an object for each row
+        let obj = {}; 
 
-        // Loop through each cell and map it to the corresponding header
+        
         headers.forEach((header, index) => {
-            // Use the header as the key and convert it to lowercase
+            
             let key = header.toLowerCase();
             obj[key] = row[index];
         });
 
-        result.push(obj); // Add the object to the result array
-    }
+        result.push(obj); 
 
-    return result; // Return the array of objects
+    return result; 
 }
 
-// Example CSV 2D array (result from previous step)
+
 let csvArray1 = [
   ["ID", "Name", "Occupation", "Age"],
   ["42", "Bruce", "Knight", "41"],
@@ -124,11 +123,11 @@ let csvArray2 = [
   ["10", "4.41", "0.238", "0.232"]
 ];
 
-// Convert the 2D CSV arrays into arrays of objects
+
 let parsedObjects1 = convertCSVToObjects(csvArray1);
 let parsedObjects2 = convertCSVToObjects(csvArray2);
 
-// Log the results
+
 console.log("Parsed Objects from CSV Data 1:");
 console.log(parsedObjects1);
 
@@ -138,7 +137,7 @@ console.log(parsedObjects2);
 
 //Part 4: Sorting and Manipulating Data//
 
-// Initial array of objects
+
 let data = [
     { id: "42", name: "Bruce", occupation: "Knight", age: "41" },
     { id: "57", name: "Bob", occupation: "Fry Cook", age: "19" },
@@ -146,20 +145,20 @@ let data = [
     { id: "98", name: "Bill", occupation: "Doctor’s Assistant", age: "26" }
   ];
   
-  // Step 1: Remove the last element
-  data.pop(); // Removes Bill
+
+  data.pop(); 
   
-  // Step 2: Insert new object at index 1
+  // Insert new object at index 1 I think?
   data.splice(1, 0, { id: "48", name: "Barry", occupation: "Runner", age: "25" });
   
-  // Step 3: Add a new object to the end of the array
+  // Add a new object to the end of the array
   data.push({ id: "7", name: "Bilbo", occupation: "None", age: "111" });
   
   // Logging the modified array (for verification)
   console.log("Modified Data:");
   console.log(data);
   
-  // Step 4: Calculate the average age
+  // alculate the average age
   let totalAge = 0;
   for (let i = 0; i < data.length; i++) {
     totalAge += parseInt(data[i].age); // Ensure that the age is an integer
@@ -178,28 +177,28 @@ let data = [
     { id: "7", name: "Bilbo", occupation: "None", age: "111" }
   ];
   
-  // Function to convert the array of objects to CSV format using reduce
-  function convertObjectsToCSV(dataArray) {
-      if (dataArray.length === 0) return ""; // Return empty if no data
   
-      // Get the headers by extracting the keys from the first object
+  function convertObjectsToCSV(dataArray) {
+      if (dataArray.length === 0) return ""; 
+  
+      
       const headers = Object.keys(dataArray[0]);
   
-      // Build the CSV rows using reduce
+      
       const csv = dataArray.reduce((acc, obj) => {
-          // Create a row by mapping values in the same order as the headers
+          
           const row = headers.map(header => obj[header]).join(",");
-          // Append the row to the accumulator string
+          
           return acc + row + "\n";
-      }, headers.join(",") + "\n"); // Start with the headers as the first row
+      }, headers.join(",") + "\n"); 
   
-      return csv.trim(); // Remove any trailing newlines
+      return csv.trim(); 
   }
   
-  // Convert the final data to CSV format
+  
   let csvData = convertObjectsToCSV(data);
   
-  // Log the resulting CSV format
+  
   console.log("CSV Format:");
   console.log(csvData);
   
